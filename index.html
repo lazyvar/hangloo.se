@@ -1,0 +1,58 @@
+<!--
+           .-.
+          (o o) boo!
+          | O \
+           \   \
+            `~~~'
+                            -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/237/call-me-hand_1f919.png">
+  <link rel="stylesheet" href="/clock.css">
+  <title>&#65279;</title>
+  <style>
+    a { text-decoration: none; color: #1074e7; }
+    a:hover { text-decoration: underline; color: #1074e7; }
+    body { font-family: 'Fira Code', monospace; background: rgb(250, 250, 250); margin: 10; }
+    body { display: flex; flex-direction: column; }
+    header { display: flex; flex-direction: row; }
+    .blue { color: #1074e7; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <span class="blue">🤙 <a href="/">hangloo.se</a></span>
+    <div class="blue" style="margin: 10px; margin-left: 25px;">
+      <a href="/">#ios</a>
+      <a href="/">#swift</a>
+      <a href="/">#ruby</a>
+      <a href="/">#elixir</a>
+      <a href="/">#swift</a>
+      <a href="/">#tdd</a>
+      <a href="/">#functional-programming</a>
+    </div>
+    <div class="clock-container">
+      <div class="clock">
+        <div class="hours-container">
+          <div class="hours angled" style="transform: rotateZ(252.5deg);"></div>
+        </div>
+        <div class="minutes-container" data-second-angle="132" style="transform: rotateZ(30deg);">
+          <div class="minutes angled" style="transform: rotateZ(150deg);"></div>
+        </div>
+        <div class="seconds-container" style="transition-delay: 0.081s; transform: rotateZ(1638deg);">
+          <div class="seconds" style="transform: rotateZ(132deg);"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <script type="text/javascript" src="/hello.js"></script>
+  <script type="text/javascript" src="/clock.js"></script>
+</body>
+
+</html>
