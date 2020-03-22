@@ -1,96 +1,70 @@
 /***
- Thanks https://www.cssanimation.rocks/clocks 
+ Thank you https://www.cssanimation.rocks/clocks 
  ***/
 
-const initLocalClocks = () => {
+const init = () => {
   const date = new Date;
   const seconds = date.getSeconds();
   const minutes = date.getMinutes();
   const hours = date.getHours();
+  const secondsAngle = (seconds * 6);
 
-  const hands = [{
-      hand: 'hours',
-      angle: (hours * 30) + (minutes / 2)
-    },
-    {
-      hand: 'minutes',
-      angle: (minutes * 6)
-    },
-    {
-      hand: 'seconds',
-      angle: (seconds * 6)
-    }
-  ];
-
-  for (let j = 0; j < hands.length; j++) {
-    const elements = document.querySelectorAll('.clock-container .' + hands[j].hand);
-
-    for (let k = 0; k < elements.length; k++) {
-      elements[k].style.transform = 'rotateZ(' + hands[j].angle + 'deg)';
-
-      if (hands[j].hand === 'minutes') {
-        elements[k].parentNode.setAttribute('data-second-angle', hands[j + 1].angle);
-      }
-    }
-  }
+  document.querySelector('.hours').style.transform   = `rotateZ(${(hours * 30) + (minutes / 2)}deg)`;
+  document.querySelector('.minutes').style.transform = `rotateZ(${minutes * 6}deg)`;
+  document.querySelector('.seconds').style.transform = `rotateZ(${secondsAngle}deg)`;
+  document.querySelector('.minutes-container').setAttribute('data-second-angle', secondsAngle);
 }
 
-const moveSecondHands = () => {
-  const containers = document.querySelectorAll('.seconds-container');
+const setupSecondHand = () => {
+  const secondsContainer = document.querySelector('.seconds-container');
+  const randomOffset = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
+
+  secondsContainer.style.transitionDelay = '0.0' + randomOffset + 's';
+
+  setInterval(moveSecondHand, 1000);
+}
+
+const moveSecondHand = () => {
+  const secondsContainer = document.querySelector('.seconds-container');
+
+  if (secondsContainer.angle === undefined) {
+    secondsContainer.angle = 6;
+  } else {
+    secondsContainer.angle += 6;
+  }
+
+  secondsContainer.style.webkitTransform = `rotateZ(${secondsContainer.angle}deg)`;
+  secondsContainer.style.transform = `rotateZ(${secondsContainer.angle}deg)`;
+}
+
+const setupMinuteHand = () => {
+  const minutesContainer = document.querySelector('.minutes-container');
+  const secondAngle = minutesContainer.getAttribute('data-second-angle');
+  const delay = (((360 - secondAngle) / 6) + 0.1) * 1000;
+
+  if (secondAngle <= 0) { return }
+
+  setTimeout(moveMinuteHand, delay);
+}
+
+const moveMinuteHand = () => {
+  const minutesContainer = document.querySelector('.minutes-container');
+
+  minutesContainer.style.webkitTransform = 'rotateZ(6deg)';
+  minutesContainer.style.transform = 'rotateZ(6deg)';
 
   setInterval(function() {
-    for (let i = 0; i < containers.length; i++) {
-      if (containers[i].angle === undefined) {
-        containers[i].angle = 6;
-      } else {
-        containers[i].angle += 6;
-      }
-
-      containers[i].style.webkitTransform = 'rotateZ(' + containers[i].angle + 'deg)';
-      containers[i].style.transform = 'rotateZ(' + containers[i].angle + 'deg)';
+    if (minutesContainer.angle === undefined) {
+      minutesContainer.angle = 12;
+    } else {
+      minutesContainer.angle += 6;
     }
-  }, 1000);
 
-  for (let i = 0; i < containers.length; i++) {
-    const randomOffset = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
-
-    containers[i].style.transitionDelay = '0.0' + randomOffset + 's';
-  }
-}
-
-const setUpMinuteHands = () => {
-  const containers = document.querySelectorAll('.minutes-container');
-  const secondAngle = containers[containers.length - 1].getAttribute('data-second-angle');
-
-  if (secondAngle > 0) {
-    let delay = (((360 - secondAngle) / 6) + 0.1) * 1000;
-
-    setTimeout(function() {
-      moveMinuteHands(containers);
-    }, delay);
-  }
-}
-
-const moveMinuteHands = (containers) => {
-  for (let i = 0; i < containers.length; i++) {
-    containers[i].style.webkitTransform = 'rotateZ(6deg)';
-    containers[i].style.transform = 'rotateZ(6deg)';
-  }
-
-  setInterval(function() {
-    for (let i = 0; i < containers.length; i++) {
-      if (containers[i].angle === undefined) {
-        containers[i].angle = 12;
-      } else {
-        containers[i].angle += 6;
-      }
-      containers[i].style.webkitTransform = 'rotateZ(' + containers[i].angle + 'deg)';
-      containers[i].style.transform = 'rotateZ(' + containers[i].angle + 'deg)';
-    }
+    minutesContainer.style.webkitTransform = `rotateZ(${minutesContainer.angle}deg)`;
+    minutesContainer.style.transform = `rotateZ(${minutesContainer.angle}deg)`;
   }, 60000);
 }
 
-initLocalClocks();
-moveSecondHands();
-setUpMinuteHands();
-
+init();
+setupSecondHand();
+setupMinuteHand();
