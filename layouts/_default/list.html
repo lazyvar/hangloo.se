@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main>
   <h1>{{ .Title }}</h1>
-  {{ range .Pages }}
+  {{ range .Pages.ByPublishDate }}
   <p>{{.Date.Format "2006-1-2"}} <a href="{{.Permalink}}">{{.Title}}</a></p>
   {{ end }}
 </main>
