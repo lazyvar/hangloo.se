@@ -36,9 +36,9 @@
     body { text-align: justify; color: rgba(0, 0, 0, 0.87); }
     header { display: flex; flex-direction: row; justify-content: space-between; }
     footer { text-align: center; }
+    main { margin-top: 15px; padding: 15px; padding-top: 0; border-radius: 4px; background: white; }
     .all-links { color: #1074e7; margin-top: auto; margin-bottom: auto; }
     .sub-links { margin-top: 20px; }
-    .main { margin-top: 15px; padding: 15px; padding-top: 0; border-radius: 4px; background: white; }
     .find { background: white; padding: 5px; text-align: center; margin-top: 15px; border-radius: 4px; }
     .find:hover { background: #e1e1e1; cursor: pointer; }
     .find svg { margin-top: 5px; }
@@ -47,6 +47,7 @@
 </head>
 
 <body>
+  {{ block "header" . }}
   <header>
     <div class="all-links">
       🤙 <a href="/">hangloo.se</a>
@@ -76,8 +77,10 @@
       <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
     </svg>
   </div>
+  {{ end }}
   {{ block "main" . }}
-
+  {{ end }}
+  {{ block "footer" . }}
   {{ end }}
   <script type="text/javascript" src="/hello_world.js"></script>
   <script type="text/javascript" src="/clock.js"></script>
