@@ -10,5 +10,5 @@ languageCode = "en-us"
     lineNos = false
     lineNumbersInTable = true
     noClasses = false
-    style = "mokai"
+    style = "dracula"
     tabWidth = 2
