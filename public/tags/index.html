@@ -1,3 +1,4 @@
+
 <!--
             ██████████          
         ████          ████      
@@ -24,8 +25,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
-  <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/237/call-me-hand_1f919.png">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+  <link rel="icon" href="/icon.png">
   <link rel="stylesheet" href="/clock.css">
+  <link rel="stylesheet" href="/syntax.css">
   <title>&#65279;</title>
   <style>
     a { text-decoration: none; color: #1074e7; }
@@ -34,9 +37,12 @@
     body { display: flex; flex-direction: column; padding: 20px; line-height: 25px; }
     body { text-align: justify; color: rgba(0, 0, 0, 0.87); }
     header { display: flex; flex-direction: row; justify-content: space-between; }
+    footer { text-align: center; }
+    main { margin-top: 15px; padding: 15px; padding-top: 0; border-radius: 4px; background: white; }
+    blockquote { border-left: #edece4 0.4em solid; padding: 0 0 0 1.6em; }
+    blockquote * { filter: opacity(50%); font-style: italic; }
     .all-links { color: #1074e7; margin-top: auto; margin-bottom: auto; }
     .sub-links { margin-top: 20px; }
-    .main { margin-top: 15px; padding: 15px; padding-top: 0; border-radius: 4px; background: white; }
     .find { background: white; padding: 5px; text-align: center; margin-top: 15px; border-radius: 4px; }
     .find:hover { background: #e1e1e1; cursor: pointer; }
     .find svg { margin-top: 5px; }
@@ -45,12 +51,13 @@
 </head>
 
 <body>
+  
   <header>
     <div class="all-links">
       🤙 <a href="/">hangloo.se</a>
       <div class="sub-links">
-        <a href="/">/entries</a>
-        <a href="/">/about</a>
+        <a href="/entries">/entries</a>
+        <a href="/about">/about</a>
         <a href="https://mack.cloud">/author</a>
       </div>
     </div>
@@ -74,6 +81,15 @@
       <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
     </svg>
   </div>
+  
+  
+<main>
+  <h1>Tags</h1>
+  
+</main>
+
+  
+  
   <script type="text/javascript" src="/hello_world.js"></script>
   <script type="text/javascript" src="/clock.js"></script>
 </body>
