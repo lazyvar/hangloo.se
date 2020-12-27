@@ -25,15 +25,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Fira+Code&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Fira+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="icon" href="/icon.png">
   <link rel="stylesheet" href="/clock.css">
   <link rel="stylesheet" href="/syntax.css">
   <title>&#65279;</title>
   <style>
-    a { text-decoration: none; color: #1074e7; }
-    a:hover { text-decoration: underline; color: #1074e7; }
-    body { font-family: 'Fira Code', monospace; background: rgb(245, 245, 245); margin: auto; margin-top: 25px; max-width: 8.5in; }
+    a { text-decoration: none; color: #003366; }
+    a:hover { text-decoration: underline; color: #003366; }
+    body { font-family: 'Catamaran', 'Helvetica'; background: rgb(245, 245, 245); margin: auto; margin-top: 25px; max-width: 8.5in; }
     body { display: flex; flex-direction: column; padding: 20px; line-height: 25px; }
     body { text-align: justify; color: rgba(0, 0, 0, 0.87); }
     header { display: flex; flex-direction: row; justify-content: space-between; }
@@ -43,6 +43,7 @@
     blockquote * { filter: opacity(50%); font-style: italic; }
     .all-links { color: #1074e7; margin-top: auto; margin-bottom: auto; }
     .sub-links { margin-top: 20px; }
+    .sub-links * { margin: 5px; }
     .find { background: white; padding: 5px; text-align: center; margin-top: 15px; border-radius: 4px; }
     .find:hover { background: #e1e1e1; cursor: pointer; }
     .find svg { margin-top: 5px; }
@@ -52,13 +53,44 @@
 
 <body>
   
-<!-- 404 phone home -->
-
+  <header>
+    <div class="all-links">
+      🤙 <a href="/">hangloo.se</a>
+      <div class="sub-links">
+        <a href="/pensieve">/pensieve</a>
+        <a href="/about">/about</a>
+        <a href="https://mack.cloud">/author</a>
+      </div>
+    </div>
+    <div class="clock-container">
+      <div class="clock">
+        <div class="hours-container">
+          <div class="hours angled"></div>
+        </div>
+        <div class="minutes-container">
+          <div class="minutes angled"></div>
+        </div>
+        <div class="seconds-container">
+          <div class="seconds"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="find">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="darkgray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+  </div>
   
-<div style="display: flex; justify-content: space-evenly; margin-top: auto; margin: 0; position: absolute; top: 50%; left: 50%; flex-wrap: wrap-reverse; transform: translate(-50%, -50%);">
-  <a href="/"><img src="phone_home.png"></a>
-  <h1 style="font-size: 144px;">404</h1>
-</div>
+  
+<main>
+  <h1>About</h1>
+  <article>
+    <p>Thoughts, ideas, musings, dreams, insights, revelations, random access memories, essays, learnings, words, letters, characters, opinions, facts, hopes, wishes, fears, bits, bytes, atoms, molecules, light waves, electric pulses, heart beats.</p>
+
+  </article>
+</main>
 
   
   

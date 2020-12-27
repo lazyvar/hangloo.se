@@ -1,5 +1,6 @@
 baseURL = "https://www.hangloo.se/"
 languageCode = "en-us"
+publishDir = "docs"
 
 [markup]
   [markup.highlight]
