@@ -72,7 +72,6 @@
       --hairline: #e6e0d4;
       --code-chip: #f0ebe0;
       --radius: 8px;
-      --shadow: 0 1px 2px rgba(40, 30, 20, .04), 0 10px 28px rgba(40, 30, 20, .06);
       --measure: 680px;
       --mono: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace;
     }
@@ -149,9 +148,9 @@
       margin-top: 8px;
       border-radius: 999px;
       cursor: pointer;
-      transition: box-shadow .2s ease, border-color .2s ease;
+      transition: border-color .2s ease;
     }
-    .find:hover { border-color: var(--accent); box-shadow: var(--shadow); }
+    .find:hover { border-color: var(--accent); }
     .find svg { stroke: var(--muted); display: block; }
     .find:hover svg { stroke: var(--accent); }
 
@@ -161,7 +160,6 @@
       padding: 28px 32px;
       border-radius: var(--radius);
       background: var(--surface);
-      box-shadow: var(--shadow);
     }
     main h1 {
       text-align: left;
