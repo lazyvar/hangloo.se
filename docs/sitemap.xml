@@ -1,27 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://www.hangloo.se/about/</loc>
-    <lastmod>2020-03-27T17:30:06-07:00</lastmod>
-  </url>
-  
   <url>
     <loc>https://www.hangloo.se/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
+    <lastmod>2020-03-27T17:30:06-07:00</lastmod>
+  </url><url>
+    <loc>https://www.hangloo.se/about/</loc>
+    <lastmod>2020-03-27T17:30:06-07:00</lastmod>
+  </url><url>
     <loc>https://www.hangloo.se/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hangloo.se/pensieve/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://www.hangloo.se/tags/</loc>
   </url>
-  
 </urlset>
