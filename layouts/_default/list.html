@@ -1,8 +1,11 @@
 {{ define "main" }}
 <main>
   <h1>{{ .Title }}</h1>
-  {{ range .Pages.ByPublishDate }}
-  <p>{{.Date.Format "2006-1-2"}} <a href="{{.Permalink}}">{{.Title}}</a></p>
+  {{ range .Pages.ByPublishDate.Reverse }}
+  <div class="post-list-item">
+    <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+    <a class="title" href="{{ .Permalink }}">{{ .Title }}</a>
+  </div>
   {{ end }}
 </main>
 {{ end }}

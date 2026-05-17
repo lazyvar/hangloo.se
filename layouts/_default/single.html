@@ -1,6 +1,9 @@
 {{ define "main" }}
 <main>
   <h1>{{ .Title }}</h1>
+  {{ if eq .Section "pensieve" }}
+  <div class="post-meta">{{ .Date.Format "January 2, 2006" }}</div>
+  {{ end }}
   <article>
     {{ .Content }}
   </article>
