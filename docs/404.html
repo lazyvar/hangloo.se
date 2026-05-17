@@ -62,24 +62,202 @@
       src: url('/fonts/firacode-latin-ext.woff2') format('woff2');
       unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
     }
-    a { text-decoration: none; color: #003366; }
-    a:hover { text-decoration: underline; color: #003366; }
-    body { font-family: 'Catamaran', 'Helvetica'; background: rgb(245, 245, 245); margin: auto; margin-top: 25px; max-width: 8.5in; }
-    body { display: flex; flex-direction: column; padding: 20px; line-height: 25px; }
-    body { text-align: justify; color: rgba(0, 0, 0, 0.87); }
-    code, pre, kbd, samp { font-family: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace; }
-    header { display: flex; flex-direction: row; justify-content: space-between; }
-    footer { text-align: center; }
-    main { margin-top: 15px; padding: 15px; padding-top: 0; border-radius: 4px; background: white; }
-    blockquote { border-left: #edece4 0.4em solid; padding: 0 0 0 1.6em; }
-    blockquote * { filter: opacity(50%); font-style: italic; }
-    .all-links { color: #1074e7; margin-top: auto; margin-bottom: auto; }
-    .sub-links { margin-top: 20px; }
-    .sub-links * { margin: 5px; }
-    .find { background: white; padding: 5px; text-align: center; margin-top: 15px; border-radius: 4px; }
-    .find:hover { background: #e1e1e1; cursor: pointer; }
-    .find svg { margin-top: 5px; }
-    .find:hover svg { stroke: dimgray; }
+    :root {
+      --bg: #f4f1ea;
+      --surface: #fffdf9;
+      --ink: #2a2521;
+      --muted: #9a9183;
+      --accent: #cf5c36;
+      --accent-strong: #b04a28;
+      --hairline: #e6e0d4;
+      --code-chip: #f0ebe0;
+      --radius: 8px;
+      --shadow: 0 1px 2px rgba(40, 30, 20, .04), 0 10px 28px rgba(40, 30, 20, .06);
+      --measure: 680px;
+      --mono: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Catamaran', 'Helvetica', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      margin: 25px auto 0;
+      max-width: 8.5in;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.65;
+      font-size: 17px;
+      text-align: justify;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+    }
+
+    code, pre, kbd, samp { font-family: var(--mono); }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      background-image: linear-gradient(var(--accent-strong), var(--accent-strong));
+      background-repeat: no-repeat;
+      background-position: 0 100%;
+      background-size: 0 1.5px;
+      transition: background-size .2s ease, color .15s ease;
+    }
+    a:hover {
+      color: var(--accent-strong);
+      background-size: 100% 1.5px;
+    }
+
+     
+    header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--hairline);
+    }
+    .all-links { margin-top: auto; margin-bottom: auto; }
+    .wordmark {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      background-image: none;
+    }
+    .wordmark:hover { color: var(--ink); }
+    .sub-links {
+      margin-top: 12px;
+      display: flex;
+      gap: 16px;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+    }
+    .sub-links a { color: var(--muted); background-image: none; }
+    .sub-links a:hover,
+    .sub-links a.active { color: var(--accent); }
+
+     
+    .find {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--hairline);
+      color: var(--muted);
+      padding: 8px 14px;
+      margin-top: 16px;
+      border-radius: 999px;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: box-shadow .2s ease, border-color .2s ease;
+    }
+    .find:hover { border-color: var(--accent); box-shadow: var(--shadow); }
+    .find svg { stroke: var(--muted); display: block; }
+    .find:hover svg { stroke: var(--accent); }
+
+     
+    main {
+      margin-top: 16px;
+      padding: 28px 32px;
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    main h1 {
+      text-align: left;
+      font-size: 2rem;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0.2em 0 0.1em;
+    }
+    article { max-width: var(--measure); }
+    article h2, article h3 {
+      text-align: left;
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+      margin-top: 1.6em;
+      margin-bottom: 0.4em;
+    }
+    article h2 { font-size: 1.4rem; }
+    article h3 { font-size: 1.15rem; }
+    article p { margin: 0.9em 0; }
+    article ul, article ol { padding-left: 1.4em; }
+    article li { margin: 0.3em 0; }
+    article hr {
+      border: none;
+      border-top: 1px solid var(--hairline);
+      margin: 2em 0;
+    }
+    article img { max-width: 100%; height: auto; border-radius: var(--radius); }
+
+     
+    code {
+      background: var(--code-chip);
+      padding: 0.12em 0.4em;
+      border-radius: 4px;
+      font-size: 0.88em;
+    }
+    pre {
+      padding: 16px 18px;
+      border-radius: var(--radius);
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+    pre code { background: none; padding: 0; font-size: 0.85em; }
+
+     
+    blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 0 0 0 1.4em;
+      margin: 1.2em 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+     
+    .post-meta {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: left;
+      margin-bottom: 1.4em;
+    }
+
+     
+    .post-list-item {
+      display: flex;
+      gap: 16px;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--hairline);
+      text-align: left;
+    }
+    .post-list-item:last-child { border-bottom: none; }
+    .post-list-item .date {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .post-list-item .title { font-size: 1.05rem; }
+
+     
+    footer {
+      text-align: center;
+      margin-top: 28px;
+      padding-top: 16px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+    }
+    footer a { color: var(--muted); background-image: none; }
+    footer a:hover { color: var(--accent); }
   </style>
 </head>
 
@@ -94,6 +272,9 @@
 </div>
 
   
+  <footer>
+    🤙 hangloo.se
+  </footer>
   
   <script type="text/javascript" src="/hello_world.js"></script>
   <script type="text/javascript" src="/clock.js"></script>
