@@ -11,5 +11,5 @@ publishDir = "docs"
     lineNos = false
     lineNumbersInTable = true
     noClasses = false
-    style = "dracula"
+    style = "gruvbox-light"
     tabWidth = 2
